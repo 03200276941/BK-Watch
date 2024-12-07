@@ -1,0 +1,4441 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Dual Strap Watches</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --main-color: #1a1a1a;
+            --p-font: 14px;
+        }
+        .main {
+            width: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+        .header {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 a {
+            text-decoration: none;
+            color: white;
+        }
+        .header img {
+            height: 40px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-icons i {
+            color: #f5f5f5;
+            font-size: 18px;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .main-content h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .filters {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .filters select {
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            border-radius: 14px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+        }
+        .product-card .sale-badge {
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 9px;
+            top: 5px;
+        }
+        .product-card .old-price {
+            text-decoration: line-through;
+            color: #888;
+        }
+        .product-card .new-price {
+            font-weight: 700;
+            color: #000;
+        }
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .notification img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .notification .text {
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+                display: none;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-icons {
+                margin-top: 10px;
+                align-self: flex-end;
+            }
+            .menu-toggle {
+                display: block;
+                align-self: flex-end;
+            }
+        }
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .footer {
+            width: 100%;
+            padding: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .list {
+            width: 20%;
+        }
+        .list i:hover {
+            color: red;
+            width: 15px;
+        }
+        .list h4 {
+            font-size: 21px;
+            color: var(--bg-color);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .list h4::before {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 60px;
+            left: 0;
+            bottom: -10px;
+            background: var(--bg-color);
+        }
+        .list ul li:not(:last-child) {
+            margin-bottom: 16px;
+        }
+        .list ul li a {
+            color: #ffffffbf;
+            font-size: var(--p-font);
+            display: block;
+            transition: .3s;
+        }
+        .list ul li a:hover {
+            color: var(--bg-color);
+            transform: translate(14px);
+        }
+        .social a {
+            height: 40px;
+            width: 40px;
+            background: var(--bg-color);
+            color: var(--main-color);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+            border-radius: 15px;
+            transition: .3s;
+            margin-right: 5px;
+        }
+        .end-text {
+            text-align: center;
+            padding-top: 90px;
+        }
+        .end-text p {
+            color: var(--bg-color);
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+        @media (max-width: 1400px) {
+            header {
+                padding: 17px;
+                transition: .2s;
+            }
+            header.sticky {
+                padding: 10px 3%;
+                transition: .2s;
+            }
+            section {
+                padding: 80px 3%;
+                transition: .2s;
+            }
+            :root {
+                --big-font: 4.5rem;
+                --h2-font: 2.3rem;
+                --p-font: 1rem;
+                transition: .2s;
+            }
+        }
+        @media (max-width: 1040px) {
+            #menu-icon {
+                display: block;
+            }
+            .sticky #menu-icon {
+                color: var(--text-color);
+            }
+            .home {
+                height: 88vh;
+            }
+            .navbar {
+                position: absolute;
+                top: 0;
+                right: -100%;
+                width: 270px;
+                height: 120vh;
+                background: #1067cc;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 15px 30px;
+                transition: 0.5s all;
+            }
+            .navbar a {
+                display: block;
+                margin: 1.2rem 0;
+            }
+            .sticky .navbar a {
+                color: var(--bg-color);
+            }
+            .navbar a:hover {
+                color: var(--text-color);
+            }
+            .open {
+                right: 0;
+            }
+            .list {
+                width: 50%;
+                margin-bottom: 12px;
+            }
+        }
+        @media (max-width: 575px) {
+            .list {
+                width: 100%;
+            }
+            .newsletter form {
+                width: 350px;
+            }
+            :root {
+                --big-font: 3.8rem;
+                --h2-font: 1.8rem;
+                transition: .2s;
+            }
+            .text {
+                text-align: center;
+            }
+            .home {
+                height: 85vh;
+                transition: 2s;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1><a href="index.html">BK Watch</a></h1>
+        <nav class="nav-links">
+            <a href="mens.html">Men's</a>
+            <a href="women.html">Women's</a>
+            <a href="Face Gear Dual Strap.html">Face Gear Dual Strap</a>
+            <a href="couple.html">Couple Watches</a>
+            <a href="sport.html">Sports Watches</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-user"></i>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <main class="main-content">
+        <h1>Women's Watches</h1>
+        <div class="filters">
+            <div>
+                <label for="availability">Filter:</label>
+                <select id="availability">
+                    <option value="availability">Availability</option>
+                </select>
+                <select id="price">
+                    <option value="price">Price</option>
+                </select>
+            </div>
+            <div>
+                <label for="sort">Sort by:</label>
+                <select id="sort">
+                    <option value="featured">Featured</option>
+                </select>
+                <span>14 products</span>
+            </div>
+        </div>
+        
+        <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+          </main>
+        
+          <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+           <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+          </main>
+        
+          <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+           <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+          </main>
+        
+          <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+           <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+          </main>
+        
+          <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+           <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+          </main>
+        
+          <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+           <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+          </main>
+        
+          <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+           <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+          </main>
+        
+          <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+           <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+          </main>
+        
+          <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+           <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+          </main>
+        
+          <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+           <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+          </main>
+        
+          <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+           <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+          </main>
+        
+          <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+           <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+          </main>
+        
+          <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+           <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+          </main>
+        
+          <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+           <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+          </main>
+        
+          <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+           <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+          </main>
+        
+          <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+           <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+          </main>
+        
+          <div class="product-grid">
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/XRfDMhGcXXSWIKVZAwCaFYDE3fbyulXOLprFOVvjnXUnzJ4TA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+            BK T-103 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              Rs. 3,250.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-104 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 2,950.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="BK T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,050.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+              BK T-102 Face Gear Dual Strap Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+            <div class="product-card">
+             <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/JiBvXecdYLzkPiCLTZxK8MGXgnrHGpVO1x67eeAv4jXLnTwnA.jpg" width="250"/>
+             <div class="sale-badge">
+              Sale
+             </div>
+             <p>
+             BK T-084 Men's Watch
+             </p>
+             <p class="old-price">
+              Rs. 5,999.00 PKR
+             </p>
+             <p class="new-price">
+              From Rs. 3,150.00 PKR
+             </p>
+            </div>
+        
+            <div class="product-card">
+                <img alt="" height="250" src="https://storage.googleapis.com/a1aa/image/49b0B6UfIiWJRSCLHFtbmLMBpw4Fdsq0m0AjrPnGXPz05E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-104 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 2,950.00 PKR
+                </p>
+               </div>
+               <div class="product-card">
+                <img alt="TOMI T-102 Face Gear Dual Strap Watch" height="250" src="https://storage.googleapis.com/a1aa/image/NBdjGL4k4HI6NxL9lmSdWhIjaPEZOR0UN2yjemLP5XQy5E8JA.jpg" width="250"/>
+                <div class="sale-badge">
+                 Sale
+                </div>
+                <p>
+                BK T-102 Face Gear Dual Strap Watch
+                </p>
+                <p class="old-price">
+                 Rs. 5,999.00 PKR
+                </p>
+                <p class="new-price">
+                 From Rs. 3,050.00 PKR
+                </p>
+               </div>
+          
+        
+           </div>
+
+        
+     
+    </main>
+    <div class="main">
+        <div class="footer">
+            <div class="list">
+                <h4>Discount Offer</h4>
+                <ul>
+                    <li>Buy any 2 Products Get 10% Buy any 3 Products Get 15% Additional discount.</li>
+                </ul>
+            </div>
+            <div class="list">
+                <h4>About Us</h4>
+                <ul>
+                    <li>We are Pakistan’s authorized seller of Tomi Original Watches – buy with confidence! The World's Top-Selling Brand, at the Best Prices with free delivery in Pakistan.</li>
+                    <li>At Tomi Watches, we believe that a watch is not just a timekeeping instrument but a statement of art and individuality. Established in 2008, we set out on a mission to curate an exclusive range of wristwatches that epitomize class, craftsmanship, and elegance.</li>
+                </ul>
+            </div>
+            <div class="list">
+                <h4>Return & Exchange Policy</h4>
+                <ul>
+                    <li>7 days return & exchange policy.</li>
+                </ul>
+            </div>
+            <div class="list">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><strong>Customer Support:</strong><br>Email: Bakhtawark085@gmail.com</li>
+                    <li><strong>Only On Call</strong><br>+923062664430</li>
+                </ul>
+            </div>
+            <div class="list">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><strong>Customer Support:</strong><br>Email: Bakhtawark085@gmail.com</li>
+                    <li><strong>Only On WhatsApp</strong><br>+923200276941</li>
+                </ul>
+            </div>
+        </div>
+        <div class="social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+    </div>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
